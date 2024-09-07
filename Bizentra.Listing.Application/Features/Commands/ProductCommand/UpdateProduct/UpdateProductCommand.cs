@@ -15,7 +15,7 @@ namespace Bizentra.Listing.Application.Features.Commands.ProductCommand.UpdatePr
             public int Price { get; set; }
             public string? Description { get; set; }
             public ICollection<Image> Images { get; set; }
-            public string? Business { get; set; }
+            public string? PhoneNumber { get; set; }
             public string? Location { get; set; }
             public string? City { get; set; }
             public string? State { get; set; }

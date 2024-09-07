@@ -10,6 +10,16 @@ namespace Bizentra.Listing.Persistence.Repositories
         {
         }
 
+        public async Task<List<Category>> GetParentCategory(Guid categoryId)
+        {
+            var parentCategories = await _context.Categories
+                .Where(c => c.ParentCategoryId == null)
+                .Include(c => c.ChildCategories)
+                .ToListAsync();
+
+            return parentCategories;
+        }
+
         public async Task<List<Category>> GetSubCategories(Guid categoryId)
         {
             var subcategories = await _context.Categories
